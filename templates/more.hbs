@@ -1,0 +1,150 @@
+<!Doctype Html>
+<html>
+    <head>
+        <Title>
+            Home
+        </Title>
+        <link rel="stylesheet" href="global_styling.css" type="text/css">
+    </head>
+
+
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/more">More</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact-us">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <h1 class="title">
+                    Freight Costing Made Simple
+                </h1>
+                <div class="left-blob"></div>
+                <div class="right-blob"></div>
+
+            </section>
+            <section>
+
+                <p class="general-text">Update Routes and Service Providers</p>
+
+            </section>
+
+            <h1>Cascading Dropdown Example</h1>
+
+            <form name="form1" id="form1" action="/action_page.php">
+                Subjects:
+                <select name="subject" id="subject">
+                    <option value="" selected="selected">Select subject</option>
+                </select>
+                <br><br>
+                Topics:
+                <select name="topic" id="topic">
+                    <option value="" selected="selected">Please select subject first</option>
+                </select>
+                <br><br>
+                Chapters:
+                <select name="chapter" id="chapter">
+                    <option value="" selected="selected">Please select topic first</option>
+                </select>
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+
+            <script>
+                var subjectObject = {
+                    "Service Providers": {
+                        "coastal couriers": [
+                            "Links", "Images", "Tables", "Lists"
+                        ],
+                        "formula couriers": [
+                            "Borders", "Margins", "Backgrounds", "Float"
+                        ],
+                        "wesbank transport": ["Variables", "Operators", "Functions", "Conditions"]
+                    },
+                    "services": {
+                        "airfreight": [
+                            "Variables", "Strings", "Arrays"
+                        ],
+                        "express road": ["SELECT", "UPDATE", "DELETE"
+                        ],
+                        "budget road": ["SELECT", "UPDATE", "DELETE"]
+                        
+
+                    }
+                }
+                window.onload = function () {
+                    var subjectSel = document.getElementById("subject");
+                    var topicSel = document.getElementById("topic");
+                    var chapterSel = document.getElementById("chapter");
+                    for (var x in subjectObject) {
+                        subjectSel.options[subjectSel.options.length] = new Option(x, x);
+                    }
+                    subjectSel.onchange = function () { // empty Chapters- and Topics- dropdowns
+                        chapterSel.length = 1;
+                        topicSel.length = 1;
+                        // display correct values
+                        for (var y in subjectObject[this.value]) {
+                            topicSel.options[topicSel.options.length] = new Option(y, y);
+                        }
+                    }
+                    topicSel.onchange = function () { // empty Chapters dropdown
+                        chapterSel.length = 1;
+                        // display correct values
+                        var z = subjectObject[subjectSel.value][this.value];
+                        for (var i = 0; i < z.length; i++) {
+                            chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+                        }
+                    }
+                }
+            </script>
+
+
+            <section></body>
+
+
+            <script>
+                function myFunction() {
+                                    alert("Please login to use this service!");
+                                }
+                
+                                function checkValue() {
+                                    if (parseInt(btn.prop('value')) === 0) 
+                                        btn.css("display", "none");
+                                    
+                                    // btn.hide(); else
+                                    btn.css("display", "");
+                                    // btn.show()
+                                    console.log("Current value is:" + btn.prop('value'));
+                                }
+                
+                                function validateInput() {
+                                    const source = document.getElementById('collection-select');
+                                    const destination = document.getElementById('destination-select');
+                                    const length = document.getElementById('length-select');
+                                    const width = document.getElementById('width-select');
+                                    const height = document.getElementById('hight-select');
+                                    const weight = document.getElementById('weight-select');
+                                    const weightUnit = document.getElementById('weight_unit-select');
+                                    const volume = document.getElementById('volume_unit-select');
+                                    const insurance = document.getElementById('insurance-select');
+                
+                
+                                    if (source.value === "" || destination.value === "" || length.value === "" || weight.value === "" || width.value === "" || height.value === "" || weightUnit.value === "" || volume.value === "" || insurance.value === "") {
+                                        alert("Please complete all fields"); // This will prevent the Form from submitting
+                                        return false;
+                                    } else {
+                                        return true; // this will submit the form and handle the control to php.
+                                    }
+                                }
+                
+                
+                
+                        
+                    </body>
+                </html>

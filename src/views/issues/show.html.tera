@@ -1,0 +1,9 @@
+{% extends "template" %}
+{% block body %}
+  {% include "issues/_issues_reported" %}
+  <a href="/issues/edit/{{issue.uuid}}" class="button">Edit Ticket</a>
+  <form accept-charset="UTF-8" action="/issues/delete/{{issue.uuid}}" autocomplete="off" method="POST" id="deleteIssue"
+    class="hidden"></form>
+  <button type="submit" value="Submit" form="deleteIssue">Delete</button>
+  <a href="/issues/manage_tickets" class="button">View All Tickets</a>
+{% endblock body %}

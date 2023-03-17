@@ -1,0 +1,13 @@
+{% extends "template" %}
+{% block body %}
+  {% for issue in issues %}
+    <div class="container">
+      <div><mark class="tag">{{loop.index}}</mark></div>
+      {% include "issues/_issues_reported" %}
+      <a href="/issues/edit/{{ issue.uuid }}" class="button">Claim Ticket</a> 
+      <form accept-charset="UTF-8" action="/issues/complete/{{issue.uuid}}" autocomplete="off" method="POST" id="completeTask"
+      class="hidden"></form>
+      <button type="submit" value="closed" form="completeTask">Complete</button>
+    </div>
+  {% endfor %}
+{% endblock %}

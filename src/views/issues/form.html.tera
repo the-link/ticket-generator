@@ -1,0 +1,61 @@
+{% extends "template" %}
+{% block body %}
+  <form accept-charset="UTF-8" action="{{ form_url }}" autocomplete="off" method="POST">
+    <input type="hidden" name="authenticity_token" value="{{ csrf_token }}"/>
+    <fieldset>
+      <legend>{{ legend }}</legend>
+      {% if edit %}
+        <input type="hidden" name="_METHOD" value="PUT" />
+      {% endif %}
+      <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <label for="issue_name">Natue of issue: </label>
+        </div>
+        <div class="col-sm-12 col-md">
+          <input name="issue_name" type="text" {% if issue %}value="{{ issue.issue_name }}"{% endif %} />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <label for="description">Short descrition:</label>
+        </div>
+        <div class="col-sm-12 col-md">
+          <input name="description" type="text" {% if issue %}value="{{ issue.description }}"{% endif %} />
+        </div>
+      </div>
+        <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <label for="reported_by">Reported By Issue:</label>
+        </div>
+        <div class="col-sm-12 col-md">
+          <input name="reported_by" type="text" {% if issue %}value="{{ issue.reported_by }}"{% endif %} />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <label for="reported_by">Contact Numbr:</label>
+        </div>
+        <div class="col-sm-12 col-md">
+          <input name="contact_number" pattern="[0-9]{14}" required type="text" {% if issue %}value="{{ issue.contact_number }}"{% endif %} />
+            <small>Format: 00264818009321</small></div>
+    </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <label for="company_name">Company Name:</label>
+        </div>
+        <div class="col-sm-12 col-md">
+          <input name="company_name" type="text" {% if issue %}value="{{ issue.company_name }}"{% endif %} />
+        </div>
+      </div>
+
+  </div>
+      <button type="submit" value="Submit">Submit</button>
+    </fieldset>
+  </form>
+
+
+
+{% endblock %}
+
+
+

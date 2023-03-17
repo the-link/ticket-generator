@@ -1,0 +1,4 @@
+{% extends "template" %}
+{% block body %}
+  <a href="/issues/new" class="button">New issue</a>
+{% endblock %}

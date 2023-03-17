@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-3"><mark>UUID:</mark></div>
+  <div class="col-sm-9"> {{ issue.uuid }}</div>
+</div>
+<div class="row">
+  <div class="col-sm-3"><mark>Nature of issue:</mark></div>
+  <div class="col-sm-9"> {{ issue.issue_name }}</div>
+</div>
+<div class="row">
+  <div class="col-sm-3"><mark>Description ofissue:</mark></div>
+  <div class="col-sm-9"> {{ issue.description }}</div>
+</div>
+<div class="row">
+  <div class="col-sm-3"><mark>Reported By::</mark></div>
+  <div class="col-sm-9"> {{ issue.reported_by }}</div>
+</div>
+<div class="row">
+  <div class="col-sm-3"><mark>Company Name:</mark></div>
+  <div class="col-sm-9"> {{ issue.company_name }}</div>
+</div>
+<div class="row">
+  <div class="col-sm-3"><mark>Contact Number:</mark></div>
+  <div class="col-sm-9"> {{ issue.company_name }}</div>
+</div>
+<div class="row">
+  <div class="col-sm-3"><mark>Ticket Number:</mark></div>
+  <div class="col-sm-9"> {{ issue.ticket_number }}</div>
+</div>
+<div class="row">
+  <div class="col-sm-3"><mark>Created At:</mark></div>
+  <div class="col-sm-9"> {{ issue.created_at }}</div>
+</div>
+<div class="row">
+  <div class="col-sm-3"><mark>Updated At:</mark></div>
+  <div class="col-sm-9"> {{ issue.updated_at }}</div>
+</div>

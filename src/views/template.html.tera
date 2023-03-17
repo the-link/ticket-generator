@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Our Application User</title>
+  <link href="/assets/mini-default.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <nav>
+    <nav class="menu-1"></nav>
+    <ul>
+        <li><a href="/issues">Generate Ticket</a></li>
+        <li><a href="/issues/manage_tickets">Manage Tickets</a></li>
+        <li><a href="/issues/open">Open Tickets</a></li>
+    </ul>
+</nav>
+
+
+
+</head>
+
+<body>
+  <div class="container">
+    {% if flash %}
+      <div class="toast" onclick="this.remove()">
+        {{ flash | safe }}
+      </div>
+    {% endif %}
+    {% block body %}{% endblock body %}
+  </div>
+</body>
+
+</html>

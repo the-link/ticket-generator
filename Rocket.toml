@@ -1,0 +1,11 @@
+[default]
+# template_dir = "templates"
+template_dir = "src/views"
+
+[debug]
+
+[debug.databases.main_connection]
+url = "postgres://postgres:password@localhost:5432/requisition"
+
+
+[release]

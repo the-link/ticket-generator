@@ -1,0 +1,371 @@
+<!Doctype Html>
+<html>
+    <head>
+        <Title>
+            Home
+        </Title>
+        <link rel="stylesheet" href="global_styling.css" type="text/css">
+    </head>
+
+    
+
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/more">More</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact-us">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <h1 class="title">
+                    Freight Costing Made Simple
+                </h1>
+                <div class="left-blob"></div>
+                <div class="right-blob"></div>
+
+            </section>
+            <section>
+
+                <p class="general-text">Conveniently compare freight costs for all major courier services</p>
+
+            </section>
+
+            <section>
+                <form id="form" method="POST" onsubmit= "return validateInput() ">
+                    <p class="general-text">
+                        Route
+                        <br>
+                        <select name="collection" id="collection-select">
+                            <option value="">--Please choose an option--</option>
+                            <option value="Cape Town">Cape Town</option>
+                            <option value="Johannesburg">Johannesburg</option>
+                            <option value="Karibib">Karibib</option>
+                            <option value="Mariental">Mariental</option>
+                            <option value="Okahandja">Okahandja</option>
+                            <option value="Omaruru">Omaruru</option>
+                            <option value="Otjiwarongo">Otjiwarongo</option>
+                            <option value="Rehoboth">Rehoboth</option>
+                            <option value="Swakopmund">Swakopmund</option>
+                            <option value="Walvis Bay">Walvis Bay</option>
+                            <option value="Windhoek">Windhoek</option>
+                            <option value="Usakos">Usakos</option>
+                            <option value="Upington">Upington</option>
+                                                       
+                        </select>
+
+                        <select name="destination" id="destination-select">
+                            <option value="">--Please choose an option--</option>
+                            <option value="Cape Town">Cape Town</option>
+                            <option value="Johannesburg">Johannesburg</option>
+                            <option value="Karibib">Karibib</option>
+                            <option value="Mariental">Mariental</option>
+                            <option value="Okahandja">Okahandja</option>
+                            <option value="Omaruru">Omaruru</option>
+                            <option value="Otjiwarongo">Otjiwarongo</option>
+                            <option value="Rehoboth">Rehoboth</option>
+                            <option value="Swakopmund">Swakopmund</option>
+                            <option value="Walvis Bay">Walvis Bay</option>
+                            <option value="Windhoek">Windhoek</option>
+                            <option value="Usakos">Usakos</option>
+                            <option value="Upington">Upington</option>
+                        </select>
+                    </p>
+                </p>
+            </section>
+
+            <p class="general-text">
+                Weight
+                <br>
+                <input type="number" name="weight" placeholder="weight" step="any" min="0" id="weight-select"/>
+                <select name="weight_unit" id="weight_unit-select">
+                    <option value="">--Please choose an option--</option>
+                    <option value="kilogram">kilogram</option>
+                    <option value="gram">gram</option>
+                </select>
+            </p>
+            <p class="general-text" display="inline">
+                Dimensions
+                <br>
+                <input type="number" name="length" placeholder="length" step="any" min="0" id="length-select"/>
+                <input type="number" name="width" placeholder="width" step="any" min="0" id="width-select"/>
+                <input type="number" name="height" placeholder="height" step="any" min="0" id="height-select"/>
+                <br>
+                <br>
+                Dimensions Unit
+                <br>
+                <select name="volume_unit" id="volume_unit-select">
+                    <option value="">--Please choose an option--</option>
+                    <option value="milimeters">milimeters</option>
+                    <option value="centimeters">centimeters</option>
+                </select>
+            </p>
+            <p class="general-text" display="inline">
+                Insurance
+                <br>
+                <select name="insurance" id="insurance-select">
+                    <option value="">--Do you require insance--</option>
+                    <option value="true">yes</option>
+                    <option value="false">no</option>
+                </select>
+            </p>
+            <p class="general-text" display="inline">
+                <button types="submit">
+                    Submit collection!
+                </button>
+            </p>
+        </form>>
+
+        <p class="Coastal-header">{{collection}}
+            -
+            {{destination}}
+            <br>
+            Weight:
+            <script>
+                document.write({{ weight }}.toFixed(2), " kg");
+            </script></p>
+        <section>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Coastal Couriers</th>
+                        <th scope="col">Wesbank</th>
+                        <th scope="col">DHL</th>
+                        <th scope="col">Formula</th>
+                    </tr>
+                </thead>
+                <tbody id="service" hx-target="closest tr">
+                    <tr>
+                        <td>
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ coastal_costs.0.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ coastal_costs.0.cost }}.toFixed(2));
+                                </script>
+                                <br>
+
+                                
+                            </p>
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ coastal_costs.1.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ coastal_costs.1.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                                </p>
+                            <p class="sub-title">
+                                  <script>
+                                    document.write("{{ coastal_costs.2.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ coastal_costs.2.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                                
+                            </p>
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ coastal_costs.3.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ coastal_costs.3.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                            
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ coastal_costs.4.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ coastal_costs.4.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                            <br>
+
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ coastal_costs.5.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ coastal_costs.5.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                            <br>
+                                    </p>
+                                </section>
+                        </td>
+                        <td>
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ wesbank_costs.0.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ wesbank_costs.0.cost }}.toFixed(2));
+                                </script>
+                                <br>
+
+                                
+                            </p>
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ wesbank_costs.1.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ wesbank_costs.1.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                                </p>
+                            <p class="sub-title">
+                                  <script>
+                                    document.write("{{ wesbank_costs.2.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ wesbank_costs.2.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                                
+                            </p>
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ wesbank_costs.3.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ wesbank_costs.3.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                            
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ wesbank_costs.4.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ wesbank_costs.4.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                            <br>
+
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ wesbank_costs.5.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ wesbank_costs.5.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                            <br>
+                                    </p>
+                                </section>
+                        </td>
+                        <td></td>
+                        <td>
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ formula_costs.0.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ formula_costs.0.cost }}.toFixed(2));
+                                </script>
+                                <br>
+
+                                
+                            </p>
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ formula_costs.1.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ formula_costs.1.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                                </p>
+                            <p class="sub-title">
+                                  <script>
+                                    document.write("{{ formula_costs.2.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ formula_costs.2.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                                
+                            </p>
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ formula_costs.3.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ formula_costs.3.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                            
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ formula_costs.4.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ formula_costs.4.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                            <br>
+
+                            <p class="sub-title">
+                                <script>
+                                    document.write("{{ formula_costs.5.description }}" );
+                                </script>
+                                <script>
+                                    document.write("<br>N$" , {{ formula_costs.5.cost }}.toFixed(2));
+                                </script>
+                                <br>
+                            <br>
+                                    </p>
+                                </section>
+                        </td>
+                    </tr>
+                </tbody>
+            </p>
+        </td>
+    </body>
+    <script>
+        function myFunction() {
+            alert("Please login to use this service!");
+        }
+
+        function checkValue() {
+            if (parseInt(btn.prop('value')) === 0)
+                btn.css("display", "none"); //btn.hide();
+            else
+                btn.css("display", ""); //btn.show()
+            console.log("Current value is:" + btn.prop('value'));
+            }
+
+       function validateInput(){
+        const source = document.getElementById('collection-select');
+        const destination = document.getElementById('destination-select');
+        const length = document.getElementById('length-select');
+        const width = document.getElementById('width-select');
+        const height = document.getElementById('hight-select');
+        const weight = document.getElementById('weight-select');
+        const weightUnit = document.getElementById('weight_unit-select');
+        const volume = document.getElementById('volume_unit-select');
+        const insurance= document.getElementById('insurance-select');
+        
+
+        if(source.value === "" || destination.value === "" || length.value === "" || weight.value === "" || width.value === "" || height.value === "" || weightUnit.value === "" || volume.value === "" || insurance.value === ""){
+          alert ("Please complete all fields"); // This will prevent the Form from submitting
+          return false;                              
+        }else{
+          return true; // this will submit the form and handle the control to php.
+        }
+     }
+    </script>
+    
+
+</html>
