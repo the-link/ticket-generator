@@ -14,6 +14,7 @@
         <li><a href="/issues">Generate Ticket</a></li>
         <li><a href="/issues/manage_tickets">Manage Tickets</a></li>
         <li><a href="/issues/open">Open Tickets</a></li>
+        <li><a href="/users?">Admin</a></li>
     </ul>
 </nav>
 

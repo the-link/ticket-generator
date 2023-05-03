@@ -3,6 +3,7 @@ use rocket::Shutdown;
 use rocket_dyn_templates::Template;
 
 pub mod issues_reported;
+pub mod user;
 
 type HtmlResponse = Result<Template, Status>;
 
