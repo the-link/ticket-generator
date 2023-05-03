@@ -37,7 +37,7 @@
         </div>
         <div class="col-sm-12 col-md">
           <input name="contact_number" pattern="[0-9]{14}" required type="text" {% if issue %}value="{{ issue.contact_number }}"{% endif %} />
-            <small>Format: 00264818009321</small></div>
+            <small>Format: 264812345678</small></div>
     </div>
       <div class="row">
         <div class="col-sm-12 col-md-3">

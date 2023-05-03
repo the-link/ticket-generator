@@ -364,7 +364,7 @@ pub async fn complete(
         )
     })?;
     Ok(Flash::success(
-        Redirect::to("/issues/complete"),
+        Redirect::to("/issues/open"),
         "Successfully completing issue",
     ))
 }

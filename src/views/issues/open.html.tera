@@ -6,8 +6,17 @@
       {% include "issues/_issues_reported" %}
       <a href="/issues/edit/{{ issue.uuid }}" class="button">Claim Ticket</a> 
       <form accept-charset="UTF-8" action="/issues/complete/{{issue.uuid}}" autocomplete="off" method="POST" id="completeTask"
-      class="hidden"></form>
-      <button type="submit" value="closed" form="completeTask">Complete</button>
+      class="hidden">
+            <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <label for="company_name">Company Name:</label>
+        </div>
+        <div class="col-sm-12 col-md">
+          <input name="company_name" type="text" {% if issue %}value="{{ issue.company_name }}"{% endif %} />
+        </div>
+      </div>
+      </form>
+      <button type="submit" value="submit" form="completeTask">Complete</button>
     </div>
   {% endfor %}
 {% endblock %}
